@@ -3,3 +3,9 @@
     justify-content: center;
     border: 5px solid rgb(0, 0, 0)
 }
+.box {
+    width: 99vh;
+    height: 99vh;
+    font-size: 8em;
+    border: 5px solid rgb(0, 0, 0); 
+}
