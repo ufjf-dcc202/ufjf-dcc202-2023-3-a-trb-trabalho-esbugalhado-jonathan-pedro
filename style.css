@@ -1,0 +1,5 @@
+.container_pagina {
+    display: flex;
+    justify-content: center;
+    border: 5px solid rgb(0, 0, 0)
+}
