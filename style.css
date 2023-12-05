@@ -15,11 +15,13 @@
     width: 100%;
     height: 42.5%;
     background-color: red;
+    align-items: center;
 }
 .espacoParaMeio {
     width: 100%;
     height: 15%;
-    background-color: black;
+    background-color: white;
+    
 }
 .espacoParaDado2 {
     display: flex;
@@ -27,4 +29,31 @@
     height: 42.5%;
     background-color: blue;
     align-items: flex-end;
+}
+.coluna {
+    border: 3px solid black;
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: auto;
+}
+
+.linha1 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.linha2 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.linha3 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgb(0, 0, 0);
 }
