@@ -38,6 +38,44 @@ function atualizaValoresMatriz()
     
 }
 
+function colocaValorNasColunas()
+{
+    coluna1 = [1,3,3];
+    coluna2 = [4,5,6];
+    coluna3 = [7,8,9];
+}
+
+//valores dos combos (se houver)
+function verificaCombosC1()
+{
+    let valorCombo = 0;
+
+    if(coluna1[0] == coluna1[1])
+    {
+        valorCombo = ((coluna1[0]*coluna1[1])*2)+coluna1[2];
+    }
+
+    else if ( coluna1[0] == coluna1[2]) 
+    {
+        valorCombo = ((coluna1[0]*coluna1[2])*2)+coluna1[1];
+    }
+    
+    else if ( coluna1[1] == coluna1[2]) 
+    {
+        valorCombo = ((coluna1[1]*coluna1[2])*2)+coluna1[0];
+    }
+
+    else if (coluna1[0] == coluna1[1] && coluna1[0] == coluna1[2])
+    {
+        valorCombo = (coluna1[0]*coluna1[1]*coluna1[2])*3;
+    }
+
+    else
+    {
+        valorCombo = coluna1[0] + coluna1[1] + coluna1[2]
+    }
+    return valorCombo;
+}
 
 console.log(dadosPlayer);
 
