@@ -8,6 +8,11 @@ let coluna2 = [];
 let coluna3 = [];
 let dadosPlayer = [linha1, linha2, linha3];
 
+function numDadoNoTurno()
+{
+    return (Math.floor(Math.random()*6))+1;
+}
+
 function acessaColunas()
 {
 
