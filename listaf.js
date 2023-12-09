@@ -8,6 +8,21 @@ let coluna2 = [];
 let coluna3 = [];
 let dadosPlayer = [linha1, linha2, linha3];
 
+function acessaColunas()
+{
+
+
+    for(let i = 0; i < 3; i++){
+        coluna1[i] = dadosPlayer[i][0];//acessa primeira coluna
+    }
+    for(let i = 0; i < 3; i++){
+        coluna2[i] = dadosPlayer[i][1];//acessa segunda coluna
+    }
+    for(let i = 0; i < 3; i++){
+        coluna3[i] = dadosPlayer[i][2];//acessa terceira coluna
+    }
+
+}
 
 console.log(dadosPlayer);
 
