@@ -77,5 +77,71 @@ function verificaCombosC1()
     return valorCombo;
 }
 
-console.log(verificaCombosC1);
+function verificaCombosC2()
+{
+    let valorCombo = 0;
+
+    if(coluna2[0] == coluna2[1])
+    {
+        valorCombo = ((coluna2[0]*coluna2[1])*2)+coluna2[2];
+    }
+
+    else if ( coluna2[0] == coluna2[2]) 
+    {
+        valorCombo = ((coluna2[0]*coluna2[2])*2)+coluna2[1];
+    }
+    
+    else if ( coluna2[1] == coluna2[2]) 
+    {
+        valorCombo = ((coluna2[1]*coluna2[2])*2)+coluna2[0];
+    }
+
+    else if (coluna2[0] == coluna2[1] && coluna2[0] == coluna2[2])
+    {
+        valorCombo = (coluna2[0]*coluna2[1]*coluna2[2])*3;
+    }
+
+    else
+    {
+        valorCombo = coluna2[0] + coluna2[1] + coluna2[2]
+    }
+    return valorCombo;
+}
+
+function verificaCombosC3()
+{
+    let valorCombo = 0;
+
+    if(coluna3[0] == coluna3[1])
+    {
+        valorCombo = ((coluna3[0]*coluna3[1])*2)+coluna3[2];
+    }
+
+    else if ( coluna3[0] == coluna3[2]) 
+    {
+        valorCombo = ((coluna3[0]*coluna3[2])*2)+coluna3[1];
+    }
+    
+    else if ( coluna3[1] == coluna3[2]) 
+    {
+        valorCombo = ((coluna3[1]*coluna3[2])*2)+coluna3[0];
+    }
+
+    else if (coluna3[0] == coluna3[1] && coluna3[0] == coluna3[2])
+    {
+        valorCombo = (coluna3[0]*coluna3[1]*coluna3[2])*3;
+    }
+
+    else
+    {
+        valorCombo = coluna3[0] + coluna3[1] + coluna3[2]
+    }
+    return valorCombo;
+}
+
+
+acessaColunas();
+colocaValorNasColunas();
+atualizaValoresMatriz();
+console.log(verificaCombosC3);
 
