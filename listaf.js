@@ -77,5 +77,5 @@ function verificaCombosC1()
     return valorCombo;
 }
 
-console.log(dadosPlayer);
+console.log(verificaCombosC1);
 
