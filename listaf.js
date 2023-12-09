@@ -11,7 +11,6 @@ let dadosPlayer = [linha1, linha2, linha3];
 function acessaColunas()
 {
 
-
     for(let i = 0; i < 3; i++){
         coluna1[i] = dadosPlayer[i][0];//acessa primeira coluna
     }
@@ -23,6 +22,22 @@ function acessaColunas()
     }
 
 }
+
+function atualizaValoresMatriz()
+{
+    
+    for(let i = 0; i < 3; i++){
+        dadosPlayer[i][0] = coluna1[i];
+    }
+    for(let i = 0; i < 3; i++){
+        dadosPlayer[i][1] = coluna2[i];
+    }
+    for(let i = 0; i < 3; i++){
+        dadosPlayer[i][2] = coluna3[i];
+    }
+    
+}
+
 
 console.log(dadosPlayer);
 
