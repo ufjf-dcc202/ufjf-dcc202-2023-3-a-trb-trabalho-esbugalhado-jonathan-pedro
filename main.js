@@ -1,8 +1,20 @@
-import {colocaValorNasColunasMaq,numDadoNoTurno} from "./listaf.js";
+import {numDadoNoTurno} from "./matriz.js";
 
-function turnoDoBot()
+function turnoDoBot() //primeiro turno
 {
-    let dadoNoTurno = numDadoNoTurno();
-    colocaValorNasColunasMaq(dadoNoTurno);
-
+    let resultado = numDadoNoTurno();
+    
 }
+
+function rolaDado()
+{
+    let resultado = numDadoNoTurno();
+    console.log(numDadoNoTurno());
+
+    let elementoqI = document.getElementById("dadoPlayer");
+    elementoqI.textContent = resultado;
+}
+
+
+document.getElementById("colunaInf1").addEventListener("click",rolaDado);
+
