@@ -149,4 +149,26 @@ function turnoDoPlayer() //primeiro turno
 
 }
 
-turnoDoBot();
+function afereSomaBot()
+{
+    let soma=[[a], [b], [c]];
+    for (let i=0;i<3;i++)
+    {
+        for(let j=0;j<3;j++)
+        {
+            soma[0] = matriz[0][j] + matriz[0][j];
+        }
+    }
+}
+
+function partida()
+{
+    zeraMatriz(matrizBot);
+    zeraMatriz(matrizPlayer);
+    turnoDoBot();
+    afereSomaBot();
+    turnoDoPlayer();
+    afereSomaPlayer();
+}
+
+partida();
