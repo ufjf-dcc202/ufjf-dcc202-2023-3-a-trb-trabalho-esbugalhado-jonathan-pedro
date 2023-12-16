@@ -75,7 +75,27 @@ function verificaLinhaPlayerC1(matriz, dadoNaRodada)
         document.getElementById("a3").innerHTML= dadoNaRodada;
     }
 }
-    
+
+
+function escolhaPlayer(dado)
+{
+    let col1 = document.getElementById("colunaInf1");
+    col1.addEventListener("click", function(){
+        verificaLinhaPlayerC1(matrizPlayer, dado);
+    });
+
+    let col2 = document.getElementById("colunaInf2");
+    col2.addEventListener("click", function(){
+        verificaLinhaPlayerC2(matrizPlayer, dado);
+    });
+
+    let col3 = document.getElementById("colunaInf3");
+    col3.addEventListener("click", function(){
+        verificaLinhaPlayerC3(matrizPlayer, dado);
+    });
+}
+
+
 function verificaLinhaPlayerC2(matriz, dadoNaRodada){
     if(matriz[1][0] === 0)
         {
