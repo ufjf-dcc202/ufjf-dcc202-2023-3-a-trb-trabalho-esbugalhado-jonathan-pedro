@@ -57,6 +57,62 @@ function verificaLinhaB(matriz, dadoNaRodada)
         document.getElementById("b1").innerHTML= dadoNaRodada;
     }
 }
+function verificaLinhaPlayerC1(matriz, dadoNaRodada)
+{
+    if(matriz[0][0] === 0)
+    {
+        matriz[0][0] = dadoNaRodada;
+        document.getElementById("a1").innerHTML= dadoNaRodada;
+    }
+    else if(matriz[0][1] === 0)
+    {
+        matriz[0][1] = dadoNaRodada;
+        document.getElementById("a2").innerHTML= dadoNaRodada;
+    }
+    else if(matriz[0][2] === 0)
+    {
+        matriz[0][2] = dadoNaRodada;
+        document.getElementById("a3").innerHTML= dadoNaRodada;
+    }
+}
+    
+function verificaLinhaPlayerC2(matriz, dadoNaRodada){
+    if(matriz[1][0] === 0)
+        {
+            matriz[1][0] = dadoNaRodada;
+            document.getElementById("a4").innerHTML= dadoNaRodada;
+        }
+        else if(matriz[1][1] === 0)
+        {
+            matriz[1][1] = dadoNaRodada;
+            document.getElementById("a5").innerHTML= dadoNaRodada;
+        }
+        else if(matriz[1][2] === 0)
+        {
+            matriz[1][2] = dadoNaRodada;
+            document.getElementById("a6").innerHTML= dadoNaRodada;
+        }
+}
+    
+function verificaLinhaPlayerC3(matriz, dadoNaRodada)
+{
+    if(matriz[2][0] === 0)
+        {
+            matriz[2][0] = dadoNaRodada;
+            document.getElementById("a7").innerHTML= dadoNaRodada;
+        }
+        else if(matriz[2][1] === 0)
+        {
+            matriz[2][1] = dadoNaRodada;
+            document.getElementById("a8").innerHTML= dadoNaRodada;
+        }
+        else if(matriz[2][2] === 0)
+        {
+            matriz[2][2] = dadoNaRodada;
+            document.getElementById("a9").innerHTML= dadoNaRodada;
+        }
+
+}
 
 
 
