@@ -77,28 +77,10 @@ function verificaLinhaPlayerC1(matriz, dadoNaRodada)
 }
 
 
-function escolhaPlayer(dado)
-{
-    let col1 = document.getElementById("colunaInf1");
-    col1.addEventListener("click", function(){
-        verificaLinhaPlayerC1(matrizPlayer, dado);
-    });
-
-    let col2 = document.getElementById("colunaInf2");
-    col2.addEventListener("click", function(){
-        verificaLinhaPlayerC2(matrizPlayer, dado);
-    });
-
-    let col3 = document.getElementById("colunaInf3");
-    col3.addEventListener("click", function(){
-        verificaLinhaPlayerC3(matrizPlayer, dado);
-    });
-}
-
 
 function verificaLinhaPlayerC2(matriz, dadoNaRodada){
     if(matriz[1][0] === 0)
-        {
+    {
             matriz[1][0] = dadoNaRodada;
             document.getElementById("a4").innerHTML= dadoNaRodada;
         }
@@ -112,11 +94,11 @@ function verificaLinhaPlayerC2(matriz, dadoNaRodada){
             matriz[1][2] = dadoNaRodada;
             document.getElementById("a6").innerHTML= dadoNaRodada;
         }
-}
+    }
     
-function verificaLinhaPlayerC3(matriz, dadoNaRodada)
-{
-    if(matriz[2][0] === 0)
+    function verificaLinhaPlayerC3(matriz, dadoNaRodada)
+    {
+        if(matriz[2][0] === 0)
         {
             matriz[2][0] = dadoNaRodada;
             document.getElementById("a7").innerHTML= dadoNaRodada;
@@ -131,15 +113,39 @@ function verificaLinhaPlayerC3(matriz, dadoNaRodada)
             matriz[2][2] = dadoNaRodada;
             document.getElementById("a9").innerHTML= dadoNaRodada;
         }
-
-}
-
-
-
+        
+    }
+    
+    function escolhaPlayer(dado)
+    {
+        let col1 = document.getElementById("colunaInf1");
+        col1.addEventListener("click", function(){
+            verificaLinhaPlayerC1(matrizPlayer, dado);
+        });
+    
+        let col2 = document.getElementById("colunaInf2");
+        col2.addEventListener("click", function(){
+            verificaLinhaPlayerC2(matrizPlayer, dado);
+        });
+    
+        let col3 = document.getElementById("colunaInf3");
+        col3.addEventListener("click", function(){
+            verificaLinhaPlayerC3(matrizPlayer, dado);
+        });
+    }
+    
+    
+    
 function turnoDoBot() //primeiro turno
 {
     let dado = rolaDadoBot();
     verificaLinhaB(matrizBot, dado);
+
+}
+function turnoDoPlayer() //primeiro turno
+{
+    let dado = rolaDadoPlayer();
+    escolhaPlayer(dado);
 
 }
 
