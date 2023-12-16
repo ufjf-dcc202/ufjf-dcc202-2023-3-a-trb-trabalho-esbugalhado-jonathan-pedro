@@ -28,6 +28,17 @@ function rolaDadoBot()
 
     return resultado;
 }
+function rolaDadoPlayer()
+{
+    let resultado = numDadoNoTurno();
+    console.log(resultado);
+    
+    let dadoJogador = document.getElementById("dadoJogador");
+    dadoJogador.innerHTML = resultado;
+
+    return resultado;
+}
+
 
 
 function turnoDoBot() //primeiro turno
