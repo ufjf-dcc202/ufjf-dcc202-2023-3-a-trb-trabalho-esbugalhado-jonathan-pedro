@@ -39,6 +39,25 @@ function rolaDadoPlayer()
     return resultado;
 }
 
+function verificaLinhaB(matriz, dadoNaRodada)
+{
+    if(matriz[0][0] === 0)
+    {
+        matriz[0][0] = dadoNaRodada;
+        document.getElementById("b3").innerHTML= dadoNaRodada;
+    }
+    else if(matriz[0][1] === 0)
+    {
+        matrizBot[0][1] = dadoNaRodada;
+        document.getElementById("b2").innerHTML= dadoNaRodada;
+    }
+    else if(matriz[0][2] === 0)
+    {
+        matrizBot[0][2] = dadoNaRodada;
+        document.getElementById("b1").innerHTML= dadoNaRodada;
+    }
+}
+
 
 
 function turnoDoBot() //primeiro turno
