@@ -115,25 +115,46 @@ function verificaLinhaPlayerC3(matriz, dadoNaRodada)
     
 }
     
-function escolhaPlayer(dado)
-{
+function escolhaPlayer(dado) {
     let col1 = document.getElementById("colunaInf1");
-    col1.addEventListener("click", function(){
+    col1.addEventListener("click", function() {
         verificaLinhaPlayerC1(matrizPlayer, dado);
-        afereSomaPlayer(0,matrizPlayer);
+        afereSomaPlayer(0, matrizPlayer);
+        col1.removeEventListener("click", col1Callback); // Removendo o event listener após a jogada
     });
-
+    
     let col2 = document.getElementById("colunaInf2");
-    col2.addEventListener("click", function(){
+    col2.addEventListener("click", function() {
         verificaLinhaPlayerC2(matrizPlayer, dado);
-        afereSomaPlayer(1,matrizPlayer);
+        afereSomaPlayer(1, matrizPlayer);
+        col2.removeEventListener("click", col2Callback); // Removendo o event listener após a jogada
+    });
+    
+    let col3 = document.getElementById("colunaInf3");
+    col3.addEventListener("click", function() {
+        verificaLinhaPlayerC3(matrizPlayer, dado);
+        afereSomaPlayer(2, matrizPlayer);
+        col3.removeEventListener("click", col3Callback); // Removendo o event listener após a jogada
     });
 
-    let col3 = document.getElementById("colunaInf3");
-    col3.addEventListener("click", function(){
+    // Funções internas para os event listeners, removendo-os após a jogada
+    function col1Callback() {
+        verificaLinhaPlayerC1(matrizPlayer, dado);
+        afereSomaPlayer(0, matrizPlayer);
+        col1.removeEventListener("click", col1Callback);
+    }
+
+    function col2Callback() {
+        verificaLinhaPlayerC2(matrizPlayer, dado);
+        afereSomaPlayer(1, matrizPlayer);
+        col2.removeEventListener("click", col2Callback);
+    }
+
+    function col3Callback() {
         verificaLinhaPlayerC3(matrizPlayer, dado);
-        afereSomaPlayer(2,matrizPlayer);
-    });
+        afereSomaPlayer(2, matrizPlayer);
+        col3.removeEventListener("click", col3Callback);
+    }
 }
     
     
@@ -142,6 +163,9 @@ function turnoDoBot() //primeiro turno
 {
     let dado = rolaDadoBot();
     verificaLinhaB(matrizBot, dado);
+    afereSomaBot(0,matrizBot);
+    afereSomaBot(1,matrizBot);
+    afereSomaBot(2,matrizBot);
 
 }
 function turnoDoPlayer() //primeiro turno
@@ -192,14 +216,54 @@ function afereSomaPlayer(pos, matriz)
     
 }
 
+let jogoRoda = true;
+
+function verificaFinalDoJogo(matriz)
+{
+    for(let i=0; i<3; i++)
+    {
+        for (let j = 0; j<3; j++)
+        {
+            if (matriz[i][j] === 0)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 function partida()
 {
     zeraMatriz(matrizBot);
     zeraMatriz(matrizPlayer);
 
-    turnoDoBot();
-    afereSomaBot(0,matrizBot);
-    turnoDoPlayer();
+    while(jogoRoda)
+    {
+        turnoDoBot();
+        turnoDoPlayer();
+        if(!verificaFinalDoJogo(matrizPlayer) && !verificaFinalDoJogo(matrizBot))
+        {
+            turnoDoPlayer();
+            if(verificaFinalDoJogo(matrizPlayer))
+            {
+                jogoRoda=false;
+                break;
+            }
+            turnoDoBot();
+            if(verificaFinalDoJogo(matrizBot))
+            {
+                jogoRoda=false;
+                break;
+            }
+            else
+            {
+                jogoRoda=false;
+            }
+        }
+        
+    }
+    
     
 }
 
