@@ -64,7 +64,7 @@ export function verificaDadosIguaisBot(dado)
   }
 }
 
-function verificaDadosIguaisPlayer(dado) {
+export function verificaDadosIguaisPlayer(dado) {
     const elBot = [b1, b2, b3, b4, b5, b6, b7, b8, b9];
     const elPlayer = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
   
@@ -112,15 +112,8 @@ export function atualizaValoresMatriz()
     
 }
 
-export function colocaValorNasColunas()
-{
-    coluna1 = [a1,a2,a3];
-    coluna2 = [a4,a5,a6];
-    coluna3 = [a7,a8,a9];
-}
-
 //valores dos combos (se houver)
-export function verificaCombosC1()
+export function verificaCombosC1(coluna1)
 {
     let valorCombo = 0;
 
@@ -151,7 +144,7 @@ export function verificaCombosC1()
     return valorCombo;
 }
 
-export function verificaCombosC2()
+export function verificaCombosC2(coluna2)
 {
     let valorCombo2 = 0;
 
@@ -182,7 +175,7 @@ export function verificaCombosC2()
     return valorCombo2;
 }
 
-export function verificaCombosC3()
+export function verificaCombosC3(coluna3)
 {
     let valorCombo3 = 0;
 
