@@ -49,6 +49,35 @@ export function numDadoNoTurno()
     return (Math.floor(Math.random()*6))+1;
 }
 
+export function verificaDadosIguaisBot(dado) 
+{
+  const elBot = [b1, b2, b3, b4, b5, b6, b7, b8, b9];
+  const elPlayer = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
+
+  for (let i = 0; i < elBot.length; i++) 
+  {
+    if (elBot[i] === elPlayer[i]) 
+    {
+      elBot[i] = dado;
+      elPlayer[i] = null;
+    }
+  }
+}
+
+function verificaDadosIguaisPlayer(dado) {
+    const elBot = [b1, b2, b3, b4, b5, b6, b7, b8, b9];
+    const elPlayer = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
+  
+    for (let i = 0; i < elPlayer.length; i++) 
+    {
+      if (elPlayer[i] === elBot[i]) 
+      {
+        elPlayer[i] = dado;
+        elBot[i] = null;
+      }
+    }
+}
+
 export function acessaColunas(coluna1, coluna2, coluna3, matriz)
 {
 

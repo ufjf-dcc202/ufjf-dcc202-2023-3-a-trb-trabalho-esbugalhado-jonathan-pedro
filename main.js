@@ -1,4 +1,4 @@
-import {getMatrizPlayer, getMatrizBot,colocaValorNasColunas, numDadoNoTurno, atualizaValoresMatriz, verificaCombosC1, verificaCombosC2, verificaCombosC3} from "./matriz.js";
+import {getMatrizPlayer, getMatrizBot,colocaValorNasColunas, numDadoNoTurno, atualizaValoresMatriz, verificaCombosC1, verificaCombosC2, verificaCombosC3, verificaDadosIguaisBot} from "./matriz.js";
 
 
 let matrizBot = getMatrizBot();
@@ -20,9 +20,7 @@ zeraMatriz(matrizPlayer);
 
 function rolaDadoBot()
 {
-    let resultado = numDadoNoTurno();
-    console.log(resultado);
-    
+    let resultado = numDadoNoTurno();    
     let dadoDoBot = document.getElementById("dadoBot");
     dadoDoBot.textContent = resultado;
 
@@ -31,7 +29,6 @@ function rolaDadoBot()
 function rolaDadoPlayer()
 {
     let resultado = numDadoNoTurno();
-    console.log(resultado);
     
     let dadoJogador = document.getElementById("dadoJogador");
     dadoJogador.innerHTML = resultado;
@@ -86,6 +83,7 @@ function verificaLinhaB(matriz, dadoNaRodada)
         matrizBot[2][2] = dadoNaRodada;
         document.getElementById("b7").innerHTML= dadoNaRodada;}
 }
+
 function verificaLinhaPlayerC1(matriz, dadoNaRodada)
 {
     if(matriz[0][0] === 0)
@@ -104,7 +102,6 @@ function verificaLinhaPlayerC1(matriz, dadoNaRodada)
         document.getElementById("a3").innerHTML= dadoNaRodada;
     }
 }
-
 function verificaLinhaPlayerC2(matriz, dadoNaRodada)
 {
     if(matriz[1][0] === 0)
@@ -122,8 +119,7 @@ function verificaLinhaPlayerC2(matriz, dadoNaRodada)
             matriz[1][2] = dadoNaRodada;
             document.getElementById("a6").innerHTML= dadoNaRodada;
         }   
-}
-    
+}    
 function verificaLinhaPlayerC3(matriz, dadoNaRodada)
 {
     if(matriz[2][0] === 0)
@@ -144,18 +140,18 @@ function verificaLinhaPlayerC3(matriz, dadoNaRodada)
     
 }
     
-function turnoDoBot() //primeiro turno
+function turnoDoBot() 
 {
     let dado = rolaDadoBot();
     verificaLinhaB(matrizBot, dado);
     afereSomaBot(0,matrizBot);
     afereSomaBot(1,matrizBot);
     afereSomaBot(2,matrizBot);
-    verificaDadosIguais();
+    verificaDadosIguaisBot(dado);
     turnoDoPlayer();
 }
 
-function turnoDoPlayer() //primeiro turno
+function turnoDoPlayer()
 {
     let dado = rolaDadoPlayer();
     let col1 = document.getElementById("colunaInf1");
@@ -173,7 +169,7 @@ function turnoDoPlayer() //primeiro turno
         col1.removeEventListener("click", fColuna1);
         col2.removeEventListener("click", fColuna2);
         col3.removeEventListener("click", fColuna3);
-        verificaDadosIguais();
+        verificaDadosIguaisPlayer(dado);
         turnoDoBot();
     }
     
@@ -183,7 +179,7 @@ function turnoDoPlayer() //primeiro turno
         col1.removeEventListener("click", fColuna1);
         col2.removeEventListener("click", fColuna2);
         col3.removeEventListener("click", fColuna3);
-        verificaDadosIguais();
+        verificaDadosIguaisPlayer(dado);
         turnoDoBot();
     }
     
@@ -193,11 +189,12 @@ function turnoDoPlayer() //primeiro turno
         col1.removeEventListener("click", fColuna1);
         col2.removeEventListener("click", fColuna2);
         col3.removeEventListener("click", fColuna3);
-        verificaDadosIguais();
+        verificaDadosIguaisPlayer(dado);
         turnoDoBot();
     }
 
 }
+
 
 function afereSomaBot(pos, matriz) 
 {
@@ -211,6 +208,14 @@ function afereSomaBot(pos, matriz)
   if (pos === 0){
         let t1 = document.getElementById("t1");
         t1.innerHTML = soma;
+    }
+    if (pos === 1){
+        let t2 = document.getElementById("t2");
+        t2.innerHTML = soma;
+    }
+    if (pos === 2){
+        let t3 = document.getElementById("t3");
+        t3.innerHTML = soma;
     }
     
 }
@@ -266,5 +271,72 @@ function verificaFinalDoJogoPlayer()
 
 }
 
-turnoDoBot();
+function verificaDadosIguaisPlayer(dado) {
+  const elBot = [b1, b2, b3, b4, b5, b6, b7, b8, b9];
+  const elPlayer = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
 
+  for (let i = 0; i < elPlayer.length; i++) 
+  {
+    if (elPlayer[i] === elBot[i]) 
+    {
+      elPlayer[i] = dado;
+      elBot[i] = null;
+    }
+  }
+}
+
+
+
+function zeraMatrizParaUsuário()
+{
+    a1.innerHTML=null; 
+    a2.innerHTML=null;
+    a3.innerHTML=null;
+    a4.innerHTML=null;
+    a5.innerHTML=null;
+    a6.innerHTML=null;
+    a7.innerHTML=null;
+    a8.innerHTML=null;
+    a9.innerHTML=null;
+    b1.innerHTML=null; 
+    b2.innerHTML=null;
+    b3.innerHTML=null;
+    b4.innerHTML=null;
+    b5.innerHTML=null;
+    b6.innerHTML=null;
+    b7.innerHTML=null;
+    b8.innerHTML=null;
+    b9.innerHTML=null;
+}
+
+function partida()
+{
+    zeraMatriz(matrizBot);
+    zeraMatriz(matrizPlayer);
+    turnoDoBot();
+}
+
+partida();
+
+function zeraSoma()
+{
+    t4.innerHTML = 0;
+    t1.innerHTML = 0;
+    t5.innerHTML = 0;
+    t2.innerHTML = 0;
+    t6.innerHTML = 0;
+    t3.innerHTML = 0;
+    
+}
+
+
+const rstBtn = document.getElementById("resetBtn");
+rstBtn.addEventListener("click", resetaJogo);
+function resetaJogo()
+{
+    zeraMatriz(matrizBot);
+    zeraMatriz(matrizPlayer);
+    zeraMatrizParaUsuário();
+    window.location.reload();
+    partida();
+}
