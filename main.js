@@ -1,8 +1,12 @@
-import {getMatrizPlayer, getMatrizBot,colocaValorNasColunas, numDadoNoTurno, atualizaValoresMatriz, verificaCombosC1, verificaCombosC2, verificaCombosC3, verificaDadosIguaisBot} from "./matriz.js";
+import {getMatrizPlayer, getMatrizBot, numDadoNoTurno, verificaCombosC1, verificaCombosC2, verificaCombosC3, verificaDadosIguaisBot} from "./matriz.js";
 
 
-let matrizBot = getMatrizBot();
-let matrizPlayer = getMatrizPlayer();
+const matrizBot = getMatrizBot();
+const matrizPlayer = getMatrizPlayer();
+
+const coluna1a = [a1,a2,a3];
+const coluna2a = [a4,a5,a6];
+const coluna3a = [a7,a8,a9];
 
 function zeraMatriz(matriz){  
     for(let i =0; i <3;i++)
@@ -164,6 +168,7 @@ function turnoDoPlayer()
     col3.addEventListener("click", fColuna3);
     
     function fColuna1() {
+        verificaFinalDoJogoBot();
         verificaLinhaPlayerC1(matrizPlayer, dado);
         afereSomaPlayer(0, matrizPlayer);
         col1.removeEventListener("click", fColuna1);
@@ -174,6 +179,7 @@ function turnoDoPlayer()
     }
     
     function fColuna2() {
+        verificaFinalDoJogoBot();
         verificaLinhaPlayerC2(matrizPlayer, dado);
         afereSomaPlayer(1, matrizPlayer);
         col1.removeEventListener("click", fColuna1);
@@ -184,6 +190,7 @@ function turnoDoPlayer()
     }
     
     function fColuna3() {
+        verificaFinalDoJogoBot();
         verificaLinhaPlayerC3(matrizPlayer, dado);
         afereSomaPlayer(2, matrizPlayer);
         col1.removeEventListener("click", fColuna1);
@@ -316,8 +323,6 @@ function partida()
     turnoDoBot();
 }
 
-partida();
-
 function zeraSoma()
 {
     t4.innerHTML = 0;
@@ -329,14 +334,7 @@ function zeraSoma()
     
 }
 
+partida();
 
-const rstBtn = document.getElementById("resetBtn");
-rstBtn.addEventListener("click", resetaJogo);
-function resetaJogo()
-{
-    zeraMatriz(matrizBot);
-    zeraMatriz(matrizPlayer);
-    zeraMatrizParaUsuário();
-    window.location.reload();
-    partida();
-}
+
+
